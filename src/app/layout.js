@@ -1,3 +1,6 @@
+import Header from "@/components/header";
+import Nav from "@/components/navigation/nav";
+
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -19,11 +22,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full bg-gray-100">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       >
-        {children}
+        <div className="min-h-full">
+          <Nav />
+          <Header />
+
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );
